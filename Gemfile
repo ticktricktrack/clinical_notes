@@ -21,6 +21,7 @@ gem "jbuilder"
 gem "tailwindcss-rails", "~> 4.0"
 
 gem "view_component"
+gem "simple_form"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -52,6 +53,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "rspec-rails", "~> 8.0"
+  gem "amazing_print"
 end
 
 group :test do
