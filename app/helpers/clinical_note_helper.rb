@@ -1,0 +1,2 @@
+module ClinicalNoteHelper
+end

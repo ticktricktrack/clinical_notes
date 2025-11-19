@@ -1,0 +1,19 @@
+<div class="breadcrumbs max-w-xs text-sm mb-5">
+  <ul>
+    <li><%= link_to "Clinical Notes", clinical_notes_path %></li>
+    <li><%= @clinical_note.patient %></li>
+  </ul>
+</div>
+
+<h1 class="text-3xl"><%= @clinical_note.patient %></h1>
+<h3 class="text-xl"><%= @clinical_note.clinician %></h1>
+<h3 class="text-xs opacity-60"> <%= @clinical_note.updated_at %></h3>
+
+<% @clinical_note.grouped_questions.each do |section| %>
+  <h2 class="text-md font-bold mt-6"><%= section[:key] %> <%= section[:title] %></h2>
+  <ul class="list bg-base-100 rounded-box shadow-md mt-8">
+    <% section[:answers].each do |answer| %>
+      <%= render "answer", answer: answer %>
+    <% end %>
+  </ul>
+<% end %>

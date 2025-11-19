@@ -1,0 +1,19 @@
+<h1 class="text-3xl mb-8 font-bold underline container">Clinical Notes</h1>
+<button class="btn btn-success"><%= link_to "New Notes", new_clinical_note_path%></button>
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  <% @clinical_notes.each do |clinical_note| %>
+    <%= link_to clinical_note_path(clinical_note) do %>
+      <li class="list-row">
+        <div class="text-s content-center">11/11/2025</div>
+        <div class="content-center">
+          <div class="text-lg"><%= clinical_note.patient %></div>
+          <div class="text-xs uppercase font-semibold opacity-60"><%= clinical_note.clinical_note_type %></div>
+        </div>
+        <button class="btn btn-primary">
+          View
+        </button>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

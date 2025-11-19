@@ -10,5 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_31_170958) do
+ActiveRecord::Schema[8.1].define(version: 2025_11_18_233647) do
+  create_table "answers", force: :cascade do |t|
+    t.integer "clinical_note_id"
+    t.datetime "created_at", null: false
+    t.integer "number"
+    t.string "question"
+    t.text "text"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clinical_notes", force: :cascade do |t|
+    t.string "clinician"
+    t.datetime "created_at", null: false
+    t.string "patient"
+    t.string "type"
+    t.datetime "updated_at", null: false
+  end
 end

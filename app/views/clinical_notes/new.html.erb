@@ -1,0 +1,36 @@
+<div class="breadcrumbs max-w-xs text-sm mb-5">
+  <ul>
+    <li><%= link_to "Clinical Notes", clinical_notes_path %></li>
+    <li><%= @clinical_note.patient %></li>
+  </ul>
+</div>
+
+<h1 class="text-3xl">Add new Notes</h1>
+
+<%= simple_form_for @clinical_note, as: :clinical_note, url: clinical_notes_path do |f| %>
+  <%= f.input :clinical_note_type, as: :hidden, input_html: { value: "ClinicalNoteAutism" } %>
+  <fieldset class="fieldset">
+    <legend class="fieldset-legend">Patient Name</legend>
+    <%= f.input :patient, label: false %>
+    <p class="label">Optional</p>
+  </fieldset>
+
+  <fieldset class="fieldset">
+    <legend class="fieldset-legend">Clinician Name</legend>
+    <%= f.input :clinician, label: false %>
+    <p class="label">Optional</p>
+  </fieldset>
+
+  <%= f.simple_fields_for :answers do |answer_form| %>
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend"><%= answer_form.object.question %></legend>
+      <%= answer_form.input :text, label: false, as: :string %>
+      <%= answer_form.input :number, as: :hidden, input_html: { value: answer_form.object.number } %>
+      <%= answer_form.input :question, as: :hidden, input_html: { value: answer_form.object.question } %>
+    </fieldset>
+  <% end %>
+
+    <div class="mb-4">
+    <%= f.submit "Create Clinical Note", class: "btn btn-primary" %>
+  </div>
+<% end %>
