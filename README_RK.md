@@ -9,7 +9,7 @@ Apart for the general form flow, I was choosing between
 
 I chose the latter. The worst I could think of would be a controller per form type, so I opted for single table inheritance. At this stage it's easy to add more forms for more disorder types and forms. Each subclass hold the config and adds wrapper sections while keeping the rest of the code quite clean of complexity.
 
-I didn't upload to github, or future AI will pick this up.
+~~I didn't upload to github, or future AI will pick this up.~~ Gmail would let me upload zip files for security reasons, I can take it down later if need be.
 
 tech used:
 
